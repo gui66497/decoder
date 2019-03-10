@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zzjz.mapper.CameraMapper" >
+  <resultMap id="BaseResultMap" type="com.zzjz.bean.Camera" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="camera_name" property="cameraName" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+    <result column="ip" property="ip" jdbcType="VARCHAR" />
+    <result column="user_name" property="userName" jdbcType="VARCHAR" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+    <result column="mac" property="mac" jdbcType="VARCHAR" />
+    <result column="model" property="model" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, camera_name, status, ip, user_name, password, mac, model
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tb_camera
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tb_camera
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.zzjz.bean.Camera" >
+    insert into tb_camera (id, camera_name,
+      status, ip, user_name,
+      password, mac, model)
+    values (#{id,jdbcType=INTEGER}, #{cameraName,jdbcType=VARCHAR},
+      #{status,jdbcType=VARCHAR}, #{only,jdbcType=VARCHAR}, #{ip,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{mac,jdbcType=VARCHAR}, #{model,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zzjz.bean.Camera" >
+    insert into tb_camera
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="cameraName != null" >
+        camera_name,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="ip != null" >
+        ip,
+      </if>
+      <if test="userName != null" >
+        user_name,
+      </if>
+      <if test="password != null" >
+        password,
+      </if>
+      <if test="mac != null" >
+        mac,
+      </if>
+      <if test="model != null" >
+        model,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="cameraName != null" >
+        #{cameraName,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="ip != null" >
+        #{ip,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null" >
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="mac != null" >
+        #{mac,jdbcType=VARCHAR},
+      </if>
+      <if test="model != null" >
+        #{model,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zzjz.bean.Camera" >
+    update tb_camera
+    <set >
+      <if test="cameraName != null" >
+        camera_name = #{cameraName,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="ip != null" >
+        ip = #{ip,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null" >
+        user_name = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="mac != null" >
+        mac = #{mac,jdbcType=VARCHAR},
+      </if>
+      <if test="model != null" >
+        mac = #{model,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zzjz.bean.Camera" >
+    update tb_camera
+    set camera_name = #{cameraName,jdbcType=VARCHAR},
+      status = #{status,jdbcType=VARCHAR},
+      ip = #{ip,jdbcType=VARCHAR},
+      user_name = #{userName,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      mac = #{mac,jdbcType=VARCHAR},
+      model = #{model,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+  <select id="getCameraList" resultMap="BaseResultMap" parameterType="com.zzjz.bean.Camera">
+    select
+    <include refid="Base_Column_List"/>
+    from tb_camera
+    <trim prefix="where" prefixOverrides="and|or">
+      <if test="id != null">
+        AND id like '%${id}%'
+      </if>
+      <if test="cameraName != null">
+        AND camera_name like '%${cameraName}%'
+      </if>
+      <if test="status != null">
+        AND status like '%${status}%'
+      </if>
+      <if test="ip != null">
+        AND ip like '%${ip}%'
+      </if>
+      <if test="userName != null">
+        AND user_name like '%${userName}%'
+      </if>
+      <if test="password != null">
+        AND password like '%${password}%'
+      </if>
+      <if test="mac != null">
+        AND mac like '%${mac}%'
+      </if>
+      <if test="model != null">
+        AND model like '%${model}%'
+      </if>
+    </trim>
+    ORDER BY id ASC
+  </select>
+    <select id="getCameraByIp" resultType="com.zzjz.bean.Camera">
+      select
+      <include refid="Base_Column_List" />
+      from tb_camera
+      where ip = #{ip,jdbcType=VARCHAR}
+    </select>
+  <select id="getCameraByMac" resultType="com.zzjz.bean.Camera">
+    select
+    <include refid="Base_Column_List" />
+    from tb_camera
+    where mac = #{mac,jdbcType=VARCHAR}
+  </select>
+</mapper>

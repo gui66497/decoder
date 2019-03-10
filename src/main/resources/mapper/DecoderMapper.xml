@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zzjz.mapper.DecoderMapper" >
+  <resultMap id="BaseResultMap" type="com.zzjz.bean.Decoder" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="ip" property="ip" jdbcType="VARCHAR" />
+    <result column="decoder_name" property="decoderName" jdbcType="VARCHAR" />
+    <result column="user_name" property="userName" jdbcType="VARCHAR" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+    <result column="device_name" property="deviceName" jdbcType="VARCHAR" />
+    <result column="device_id" property="deviceId" jdbcType="VARCHAR" />
+    <result column="model" property="model" jdbcType="VARCHAR" />
+    <result column="serial_number" property="serialNumber" jdbcType="VARCHAR" />
+    <result column="mac_address" property="macAddress" jdbcType="VARCHAR" />
+    <result column="firmware_version" property="firmwareVersion" jdbcType="VARCHAR" />
+    <result column="firmware_released_date" property="firmwareReleasedDate" jdbcType="VARCHAR" />
+    <result column="logic_version" property="logicVersion" jdbcType="VARCHAR" />
+    <result column="logic_released_date" property="logicReleasedDate" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, ip, decoder_name, user_name, password, device_name, device_id, model, serial_number, mac_address,
+    firmware_version, firmware_released_date, logic_version, logic_released_date
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tb_decoder
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="getDecoderInfoByIp" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select
+    <include refid="Base_Column_List" />
+    from tb_decoder
+    where ip = #{ip,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tb_decoder
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insertSelective" parameterType="com.zzjz.bean.Decoder" >
+    insert into tb_decoder
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="ip != null" >
+        ip,
+      </if>
+      <if test="decoderName != null" >
+        decoder_name,
+      </if>
+      <if test="userName != null" >
+        user_name,
+      </if>
+      <if test="password != null" >
+        password,
+      </if>
+      <if test="deviceName != null" >
+        device_name,
+      </if>
+      <if test="deviceId != null" >
+        device_id,
+      </if>
+      <if test="model != null" >
+        model,
+      </if>
+      <if test="serialNumber != null" >
+        serial_number,
+      </if>
+      <if test="macAddress != null" >
+        mac_address,
+      </if>
+      <if test="firmwareVersion != null" >
+        firmware_version,
+      </if>
+      <if test="firmwareReleasedDate != null" >
+        firmware_released_date,
+      </if>
+      <if test="logicVersion != null" >
+        logic_version,
+      </if>
+      <if test="logicReleasedDate != null" >
+        logic_released_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="ip != null" >
+        #{ip,jdbcType=VARCHAR},
+      </if>
+      <if test="decoderName != null" >
+        #{decoderName,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null" >
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceName != null" >
+        #{deviceName,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceId != null" >
+        #{deviceId,jdbcType=VARCHAR},
+      </if>
+      <if test="model != null" >
+        #{model,jdbcType=VARCHAR},
+      </if>
+      <if test="serialNumber != null" >
+        #{serialNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="macAddress != null" >
+        #{macAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="firmwareVersion != null" >
+        #{firmwareVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="firmwareReleasedDate != null" >
+        #{firmwareReleasedDate,jdbcType=VARCHAR},
+      </if>
+      <if test="logicVersion != null" >
+        #{logicVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="logicReleasedDate != null" >
+        #{logicReleasedDate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zzjz.bean.Decoder" >
+    update tb_decoder
+    <set >
+      <if test="ip != null" >
+        ip = #{ip,jdbcType=VARCHAR},
+      </if>
+      <if test="decoderName != null" >
+        decoder_name = #{decoderName,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null" >
+        user_name = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceName != null" >
+        device_name = #{deviceName,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceId != null" >
+        device_id = #{deviceId,jdbcType=VARCHAR},
+      </if>
+      <if test="model != null" >
+        model = #{model,jdbcType=VARCHAR},
+      </if>
+      <if test="serialNumber != null" >
+        serial_number = #{serialNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="macAddress != null" >
+        mac_address = #{macAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="firmwareVersion != null" >
+        firmware_version = #{firmwareVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="firmwareReleasedDate != null" >
+        firmware_released_date = #{firmwareReleasedDate,jdbcType=VARCHAR},
+      </if>
+      <if test="logicVersion != null" >
+        logic_version = #{logicVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="logicReleasedDate != null" >
+        logic_released_date = #{logicReleasedDate,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+  <select id="getDecoderList" resultMap="BaseResultMap" parameterType="com.zzjz.bean.Decoder">
+    select
+    <include refid="Base_Column_List"/>
+    from tb_decoder
+    <trim prefix="where" prefixOverrides="and|or">
+      <if test="id != null">
+        AND id like '%${id}%'
+      </if>
+      <if test="ip != null">
+        AND ip like '%${ip}%'
+      </if>
+      <if test="decoderName != null">
+        AND decoder_name like '%${decoderName}%'
+      </if>
+      <if test="userName != null">
+        AND user_name like '%${userName}%'
+      </if>
+      <if test="password != null">
+        AND password like '%${password}%'
+      </if>
+      <if test="deviceName != null">
+        AND device_name like '%${deviceName}%'
+      </if>
+      <if test="deviceId != null">
+        AND device_id like '%${deviceId}%'
+      </if>
+      <if test="model != null">
+        AND model like '%${model}%'
+      </if>
+      <if test="serialNumber != null">
+        AND serial_number like '%${serialNumber}%'
+      </if>
+      <if test="macAddress != null">
+        AND mac_address like '%${macAddress}%'
+      </if>
+      <if test="firmwareVersion != null">
+        AND firmware_version like '%${firmwareVersion}%'
+      </if>
+      <if test="firmwareReleasedDate != null">
+        AND firmware_released_date like '%${firmwareReleasedDate}%'
+      </if>
+      <if test="logicVersion != null">
+        AND logic_version like '%${logicVersion}%'
+      </if>
+      <if test="logicReleasedDate != null">
+        AND logic_released_date like '%${logicReleasedDate}%'
+      </if>
+    </trim>
+    ORDER BY id ASC
+  </select>
+  <select id="getDecoderInfoByMac" resultType="com.zzjz.bean.Decoder">
+    select
+    <include refid="Base_Column_List" />
+    from tb_decoder
+    where mac_address = #{macAddress,jdbcType=INTEGER}
+  </select>
+</mapper>

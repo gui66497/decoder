@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>VLC Mozilla plugin testpage</title>
+    <style>
+        .t {
+            float: left;
+            position: absolute;
+            top: 50px;
+            left: 50px;
+            color: red;
+            width: 100px;
+            height: 100px;
+            filter: alpha(opacity=50);
+        }
+    </style>
+    <script src="../extJs/jquery-1.11.0.js"></script>
+</head>
+<body>
+<div class="t">
+    <iframe id="preview"
+            style=" position: absolute; z-index: -1;width: 100%; height: 100%;scrolling:no; allowTransparency:true;"
+            frameborder="0">
+    </iframe>
+</div>
+<div>
+    <embed id="vlcDiv" type="application/x-vlc-plugin" pluginspage="http://www.videolan.org"
+           src="rtsp://admin:admin1234@192.168.1.191:554"
+           width="780"
+           height="560">
+    </embed>
+
+</div>
+<script language="Javascript">
+    <!--
+    //var vlc = document.getElementById("vlc");
+    //vlc.audio.toggleMute();
+    //!-->
+
+
+    window.onload = function () {
+        /*var ip = window.location.search.split("=")[1];
+        $("#vlcDiv").attr("src", "rtsp://admin:admin1234@" + ip + ":554");*/
+
+        var doc = document.getElementById("preview").contentDocument || document.frames["preview"].document;
+        doc.body.innerHTML = "<html><body style='background:transparent;'><div style='background:transparent;color:red;'>hello,world!<br></div></body></html>";
+
+    }
+</script>
+</body>
+</html>

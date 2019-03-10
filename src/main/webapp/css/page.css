@@ -1,0 +1,100 @@
+html
+{
+    margin:0px;
+    padding:0px;
+ }
+body
+{
+	margin: 0;
+	background-color: #fff;
+	font-size: 12px;
+	font-family: "Lucida Grande","Lucida Sans Unicode",Arial,Verdana,sans-serif; /* MAIN BODY FONTS */
+	padding: 0;
+	height: 100%;
+	width:100%;
+}
+
+input[type=checkbox]
+{
+	border: none;
+}
+input[type=radio]
+{
+	border: none;
+}
+select
+{
+	border: #3C7FB1 1px solid;
+}
+h1{
+font-size:16px;
+text-align:center;
+padding:10px 0; 
+}
+H2 {
+	font-size: 14px;
+}
+FIELDSET {
+	border: solid 1px #CCC;
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	border-radius: 8px;
+	padding: 1em 2em;
+	margin: 1em 0em;
+}
+
+LEGEND {
+	color: #333;
+	font-size: 14px;
+	padding: 0em .5em;
+	font-weight:bold;
+}
+
+.ellipsis
+{
+	white-space: nowrap;
+	text-overflow: ellipsis; /* for internet explorer */
+	overflow: hidden;
+	display: block;
+}
+html > body .ellipsis
+{
+	clear: both;
+}
+
+
+a.imgbtn
+{
+	color: #000000;
+}
+
+
+.info
+{
+    background:#EEFAF9 url("../images/icons/information.png") no-repeat 5px 50%;
+    border:solid 1px #D6D6D6;
+    padding:5px;
+    padding-left:25px;
+    text-align:left;
+    margin:10px;
+}
+.important
+{
+    color:Red;
+ }
+
+.nodisplay
+{
+    display:none;        
+}
+
+img.picker
+{
+	    height:16px;
+	    width:16px;
+	    margin-left:-19px;
+	    vertical-align:middle;
+	    padding-bottom: 2px;
+	    cursor:pointer;
+	    border:none;		  
+}

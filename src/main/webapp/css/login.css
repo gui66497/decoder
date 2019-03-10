@@ -1,0 +1,139 @@
+html,body{
+    width: 100%;
+    height:100%;
+    background:url('../images/login.jpg') ;
+    background-size: 100% 100%;
+    overflow: hidden;
+}
+.interfaceContent{
+    width:368px ;
+    height:340px;
+    position: relative;
+    top:50%;
+    left: 50%;
+    margin-left: -184px;
+    margin-top: -280px;
+}
+.loginTitle{
+    width: 100%;
+    height:30px;
+    line-height: 30px;
+    font-size: 30px;
+    font-weight: 700;
+    color: #035ad6;
+    text-align: center;
+    margin-bottom: 30px;
+    position: relative;
+}
+.loginTitle:before,.loginTitle:after{
+    display: inline-block;
+    content: '';
+    width: 95px;
+    height:2px;
+    background: url("../images/sideLine.png");
+    position: absolute;
+    top: 14px;
+}
+.loginTitle:after{
+    right:0;
+    transform:rotate(180deg);
+    -ms-transform:rotate(180deg);
+    margin-right: -15px;
+}
+.loginTitle:before{
+    left: 0;
+    margin-left: -15px;
+}
+.loginTitle span:before,.loginTitle span:after{
+    display: inline-block;
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: #2040a3;
+    border-radius: 50%;
+    position: absolute;
+    top: 12px;
+    margin-left: -14px;
+}
+.loginTitle span:before{
+    margin-left: -14px;
+}
+.loginTitle span:after{
+    margin-left: 8px;
+}
+.loginFrame{
+    background: #e7f1ff;
+    border: 5px solid rgba(53,70,114,0.3);
+    padding: 24px 20px;
+    border-radius: 4px;
+}
+.userName,.password{
+    width: 278px;
+    height:38px;
+    color: #666;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+.sphere{
+    position: relative;
+    padding-left: 40px;
+    background: white;
+}
+.remember{
+    width: 100%;
+    text-align: right;
+    margin-bottom: 22px;
+    color: #666;
+    font-size: 16px;
+}
+.check{
+    width: 16px;
+    height:16px;
+    border: 1px solid #666;
+    vertical-align: middle;
+}
+.loginBtn{
+    width: 100%;
+    height: 38px;
+    color: #fff;
+    font-size: 18px;
+    border: none;
+    background:-webkit-linear-gradient(to bottom, #0168e8, #0546bc);
+    background:linear-gradient(to bottom,#0168e8,#0546bc);
+    background: -o-linear-gradient(to bottom,#0168e8,#0546bc);
+    background: -moz-linear-gradient(to bottom,#0168e8,#0546bc);
+    background: -ms-linear-gradient(to bottom,#0168e8,#0546bc);
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType = 0, startColorstr = #0168e8, endColorstr = #0546bc);
+}
+.loginPicture{
+    width: 24px;
+    height:24px;
+    position: absolute;
+    left: 8px;
+    top:7px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

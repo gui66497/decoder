@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=9">
+    <title></title>
+</head>
+<body>
+<div id="state1" class="item"></div>
+<div id="state2" class="item"></div>
+<div id="state3" class="item"></div>
+</body>
+<!--html部分仅声明三个div，注意，jsPlumb通过id来识别html元素，因此如果要使用jsPlumb连线必须声明id。-->
+<style type="text/css">
+    .dragActive {
+        border: 2px dotted orange;
+    }
+
+    /
+    /
+    当拖动一个连接点时，可连接的连接点会自动使用该css
+    .dropHover {
+        border: 1px dotted red;
+    }
+
+    /
+    /
+    当拖动一个连接点到可连接的点时，该点会自动使用该css
+    .item {
+        border: 1px solid black;
+        background-color: #ddddff;
+        width: 100px;
+        height: 100px;
+        position: absolute;
+    }
+
+    #state1 {
+        left: 100px;
+        top: 100px;
+    }
+
+    #state2 {
+        left: 250px;
+        top: 250px;
+    }
+
+    #state3 {
+        left: 100px;
+        top: 250px;
+    }
+</style>
+</html>
